@@ -1,5 +1,6 @@
-{{ if eq .chezmoi.osRelease.id "arch" }}
+{{ if eq .chezmoi.osRelease.id "arch" -}}
 #!/bin/bash
-{{ range .packages.arch.prerequisites }}
+{{ range .packages.arch.prerequisites -}}
 sudo pacman -S {{ . }}
+{{ end -}}
 {{ end -}}
