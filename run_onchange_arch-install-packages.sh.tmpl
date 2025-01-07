@@ -1,0 +1,5 @@
+{{ if eq .chezmoi.osRelease.id "arch" }}
+#!/bin/bash
+{{ range .packages.arch.prerequisites }}
+sudo pacman -S {{ . }}
+{{ end -}}
