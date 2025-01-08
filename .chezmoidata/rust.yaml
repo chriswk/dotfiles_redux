@@ -5,7 +5,7 @@ rust:
     - cargo-update
     - cargo-dist
     - cargo-smart-release
-    - delta
+    - git-delta
     - mise
     - starship
     - sqlx-cli
