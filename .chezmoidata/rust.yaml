@@ -1,0 +1,11 @@
+rust:
+  packages:
+    - skim
+    - gitoxide
+    - cargo-upgrade
+    - cargo-dist
+    - cargo-smart-release
+    - delta
+    - mise
+    - starship
+    - sqlx-cli
