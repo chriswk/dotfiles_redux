@@ -1,24 +1,23 @@
-rust:
-  packages:
-    arch:
-      prerequisites:
-        - base-devel
-        - cmake
-        - git
-        - fish
-        - zsh
-        - curl
-        - neovim
-      devel:
-        - emacs
-    ubuntu:
-      prerequisites:
-        - build-essential
-        - git
-        - cmake
-        - fish
-        - zsh
-        - curl
-        - neovim
-      devel:
-        - emacs
+packages:
+  arch:
+    prerequisites:
+      - base-devel
+      - cmake
+      - git
+      - fish
+      - zsh
+      - curl
+      - neovim
+    devel:
+      - emacs
+  ubuntu:
+    prerequisites:
+      - build-essential
+      - git
+      - cmake
+      - fish
+      - zsh
+      - curl
+      - neovim
+    devel:
+      - emacs
