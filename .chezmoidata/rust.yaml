@@ -2,7 +2,7 @@ rust:
   packages:
     - skim
     - gitoxide
-    - cargo-upgrade
+    - cargo-update
     - cargo-dist
     - cargo-smart-release
     - delta
