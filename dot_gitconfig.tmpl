@@ -1,0 +1,49 @@
+[alias]
+	ci = commit
+	co = checkout
+	backone = reset --hard HEAD~1
+	st = status
+	br = branch
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+        datedtags = log --tags --simplify-by-decoration --pretty=format:'%ci %d'
+	type = cat-file -t
+	dump = cat-file -p
+	wipe = reset --hard HEAD
+	amend = commit --amend
+	spop = stash pop
+[branch]
+	autosetuprebase = always
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = vim
+        pager = delta
+[user]
+        name = {{ .user }}
+        email = {{ .email }}
+        signingkey = {{ .signingkey }}
+[push]
+	default = current
+[pull]
+	default = current
+        rebase = true
+[commit]
+        gpgsign = true
+[color]
+  diff = auto
+[init]
+  defaultBranch = main
+
+[commit]
+  gpgsign = true
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true
+
+[merge]
+  conflictstyle = diff3
+
+[diff]
+  colorMoved = default
