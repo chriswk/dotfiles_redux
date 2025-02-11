@@ -9,3 +9,4 @@ rust:
     - mise
     - starship
     - sqlx-cli
+    - exa
