@@ -1,0 +1,10 @@
+{{- $email := promptString "git email" -}}
+{{- $gitUser := promptString "git user" -}}
+{{- $gitSignKey := promptString "gpg signingkey" -}}
+[data]
+  email = "{{ $email }}"
+  user = "{{ $gitUser }}"
+  signingkey = "{{ $gitSignKey }}"
+[sourceVCS]
+  autoCommit = true
+  autoPush = true
