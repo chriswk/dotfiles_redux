@@ -10,8 +10,6 @@ local opts = { noremap = true, silent = true }
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Allow moving the cursor through wrapped lines with j, k
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk', : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'l', "v:count == 0 ? 'gj', : 'j'", { expr = true, silent = true })
 
 -- Clear highlights
 vim.keymap.set('n', '<Esc>', ':noh<CR>', opts)

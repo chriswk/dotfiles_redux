@@ -1,54 +1,56 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export EDITOR="vim"
-export GOPATH="$HOME/go"
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+
 ZSH_THEME="amuse"
 
-plugins=(git direnv archlinux kubectl gpg-agent ssh-agent gradle mvn npm aws tmux)
+plugins=(
+    git
+    archlinux
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    aws
+    kubectl
+    gpg-agent
+    mvn
+    npm
+)
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/.zshaliases
+# Check archlinux plugin commands here
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/archlinux
 
 function select-repo() {
-  local root=~/src
-  echo -n $root/
-  {
-	  cd $root
-	  ein t find
-  } | sk -q "$1"
+    local root=~/src # or whereever you put your cloned projects
+    echo -n $root/
+    {
+        cd $root
+        ein t find
+    } | sk -q "$1"
 }
 
 function cd-repo() {
-  cd "$(select-repo $@)"
+    cd "$(select-repo $@)"
 }
 
 alias or=cd-repo
-export PATH=$PATH:$HOME/bin:$HOME/.local/bin:$HOME/.yarn/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/.bin:$HOME/.pulumi/bin:$HOME/.local/share/pnpm
-
-export PATH=$PATH:/snap/bin
-#[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-source $HOME/.zshaliases
 export DOCKER_BUILDKIT=1
 export COMPOSE_DOCKER_CLI_BUILD=1
 source /home/chriswk/.config/op/plugins.sh
-
-# bun completions
-[ -s "/home/chriswk/.bun/_bun" ] && source "/home/chriswk/.bun/_bun"
-eval "$(zoxide init zsh)"
-alias cd=z
 alias cat=bat
+# Set-up icons for files/folders in terminal
+alias ls='eza -a --icons'
+alias ll='eza -al --icons'
+alias lt='eza -a --tree --level=1 --icons'
 
-# pnpm
-export PNPM_HOME="/home/chriswk/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
+# Set-up FZF key bindings (CTRL R for fuzzy history finder)
+source <(fzf --zsh)
+
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
+eval "$(starship init zsh)"
 eval "$(mise activate zsh)"

@@ -1,2 +1,10 @@
 [tools]
 node = "latest"
+maven = "latest"
+gradle = "latest"
+pulumi = "latest"
+kubectl = "latest"
+pnpm = "latest"
+bun = "latest"
+deno = "latest"
+
