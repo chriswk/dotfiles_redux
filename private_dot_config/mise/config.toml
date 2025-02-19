@@ -7,4 +7,7 @@ kubectl = "latest"
 pnpm = "latest"
 bun = "latest"
 deno = "latest"
+java = "17"
+k6 = "latest"
+hey = "latest"
 

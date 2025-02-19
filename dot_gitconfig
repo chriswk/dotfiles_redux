@@ -10,7 +10,8 @@
 	dump = cat-file -p
 	wipe = reset --hard HEAD
 	amend = commit --amend
-	spop = stash pop
+    spop = stash pop
+    gone = "!f() { git fetch --all --prune; git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D; }; f"
 [branch]
 	autosetuprebase = always
 [core]
